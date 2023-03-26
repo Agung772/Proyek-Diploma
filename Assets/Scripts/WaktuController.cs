@@ -34,11 +34,6 @@ public class WaktuController : MonoBehaviour
     private void Start()
     {
         SetJam(setJam);
-
-        if (7 >= 6)
-        {
-            print("Yessssssssssssssss");
-        }
     }
     private void Update()
     {
