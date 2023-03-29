@@ -23,6 +23,7 @@ public class WaktuController : MonoBehaviour
     public float jam;
 
     public float fogTime;
+    public float ambientIntensityTime;
 
     public Transform directionalLight;
     public GameObject volumeFog;
@@ -78,15 +79,21 @@ public class WaktuController : MonoBehaviour
         else if (jam >= 18)
         {
             fogTime -= Time.deltaTime * 0.1f;
+            ambientIntensityTime -= Time.deltaTime * 0.1f;
+
+
         }
         else if (jam >= 6)
         {
             fogTime += Time.deltaTime * 0.1f;
+            ambientIntensityTime += Time.deltaTime * 0.1f;
 
             SetFog(false);
         }
         fogTime = Mathf.Clamp(fogTime, 0, 0.9f);
+        ambientIntensityTime = Mathf.Clamp(ambientIntensityTime, 0.8f, 2.2f);
         RenderSettings.fogColor = new Color(fogTime, fogTime, fogTime, 1);
+        RenderSettings.ambientIntensity = ambientIntensityTime;
 
     }
 
@@ -101,17 +108,20 @@ public class WaktuController : MonoBehaviour
         if (jam >= 18)
         {
             fogTime = 0;
+            ambientIntensityTime = 0.8f;
             SetFog(true);
             print("Gelapfog");
         }
         else if (jam >= 6)
         {
             fogTime = 1;
+            ambientIntensityTime = 2.2f;
             SetFog(false);
         }
         else if (jam >= 0)
         {
             fogTime = 0;
+            ambientIntensityTime = 0.8f;
             SetFog(true);
         }
     }
