@@ -18,8 +18,6 @@ public class WaktuController : MonoBehaviour
     public float kecepatanWaktu = 1;
 
     public float setJam;
-    public float menitLocal;
-    public float menitGlobal;
     public float jam;
 
     public float fogTime;
@@ -38,24 +36,19 @@ public class WaktuController : MonoBehaviour
     }
     private void Update()
     {
-        menitGlobal += Time.deltaTime * kecepatanWaktu;
-        menitLocal += Time.deltaTime * kecepatanWaktu;
+        //Rotasi Directiona lLight
+        //directionalLight.rotation = Quaternion.Euler(menitGlobal + 90 + 180, 0.0f, 0.0f);
 
-        //Hitungan jam
-        if (menitLocal >= 15)
-        {
-            jam++;
-            menitLocal = 0;
-        }
-        //Hitungan hari
+        jam += Time.deltaTime * kecepatanWaktu;
+        float alpha = jam / 24;
+        float sunRotation = Mathf.Lerp(-90, 270, alpha);
+        directionalLight.rotation = Quaternion.Euler(sunRotation, 0, 0);
+
+        //reset jam
         if (jam >= 24)
         {
             jam = 0;
-            menitGlobal = 0;
         }
-
-        //Rotasi Directiona lLight
-        directionalLight.rotation = Quaternion.Euler(menitGlobal + 90 + 180, 0.0f, 0.0f);
 
         //Mencari tau kondisi waktu
         if (jam >= 19)
@@ -103,7 +96,6 @@ public class WaktuController : MonoBehaviour
 
     public void SetJam(float setJam)
     {
-        menitGlobal = setJam * 15;
         jam = setJam;
         if (jam >= 18)
         {
