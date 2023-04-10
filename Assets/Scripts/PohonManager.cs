@@ -28,7 +28,6 @@ public class PohonManager : MonoBehaviour
         RangeToRotate(0);
         RangeToRotate(1);
         RangeToRotate(2);
-        RangeToRotate(3);
     }
 
 

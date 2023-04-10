@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    public bool operation = true;
 
     public float speedPlayer;
 
@@ -36,8 +37,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
-        AnimasiPlayer();
+        if (operation)
+        {
+            MovePlayer();
+            AnimasiPlayer();
+        }
+
     }
 
     void MovePlayer()
@@ -133,5 +138,18 @@ public class PlayerController : MonoBehaviour
             
         }
 
+    }
+
+    public void SetPosition(Vector3 setV3)
+    {
+        StartCoroutine(Coroutine());
+        IEnumerator Coroutine()
+        {
+            operation = false;
+            yield return new WaitForSeconds(0.1f);
+            transform.position = setV3;
+            yield return new WaitForSeconds(0.1f);
+            operation = true;
+        }
     }
 }

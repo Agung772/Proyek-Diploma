@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MinimapController : MonoBehaviour
+{
+    [SerializeField]
+    Transform minimapCam;
+    float positionZ = 500;
+    float positionY = 420;
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            float verticalMouse = Input.GetAxis("Mouse Y");
+            positionZ -= verticalMouse * 15;
+            minimapCam.localPosition = new Vector3(0, 300, positionZ);
+            positionZ = Mathf.Clamp(positionZ, -80 + 10, 1565 - 10);
+        }
+
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0.2)
+        {
+            print("Scroll");
+        }
+
+
+
+    }
+}
