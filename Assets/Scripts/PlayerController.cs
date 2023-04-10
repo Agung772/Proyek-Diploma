@@ -107,26 +107,26 @@ public class PlayerController : MonoBehaviour
             
             if (angle < 35f)
             {
-                print("Belakang");
+                //print("Belakang");
                 animator.SetFloat("X", 0);
                 animator.SetFloat("Z", -1);
 
             }
             else if (angle < 145 && designKarakter.localEulerAngles.y < 180)
             {
-                print("Kiri");
+                //print("Kiri");
                 animator.SetFloat("X", -1);
                 animator.SetFloat("Z", 0);
             }
             else if (angle < 145 && designKarakter.localEulerAngles.y > 180)
             {
-                print("Kanan");
+                //print("Kanan");
                 animator.SetFloat("X", 1);
                 animator.SetFloat("Z", 0);
             }
             else if (angle < 180)
             {
-                print("Depan");
+                //print("Depan");
                 animator.SetFloat("X", 0);
                 animator.SetFloat("Z", 1);
             }

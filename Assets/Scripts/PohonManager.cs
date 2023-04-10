@@ -6,49 +6,63 @@ public class PohonManager : MonoBehaviour
 {
     public static PohonManager instance;
 
-    public new Transform camera;
-    public Transform pohonAktif;
+    public int rangePohonRotate = 20;
 
-    public Transform[] pohonRenderers;
+    PlayerController playerController;
+    public new Transform camera;
+    public PohonController[] pohons;
+
 
     private void Awake()
     {
         instance = this;
     }
+    private void Start()
+    {
+        playerController = PlayerController.instance;
+
+        pohons = FindObjectsOfType<PohonController>();
+    }
     void Update()
     {
-        RotatePohon(0);
-        RotatePohon(1);
-        RotatePohon(2);
-        RotatePohon(3);
-        RotatePohon(4);
-        RotatePohon(5);
-        RotatePohon(6);
+        RangeToRotate(0);
+        RangeToRotate(1);
+        RangeToRotate(2);
+        RangeToRotate(3);
     }
 
-    public void UpdatePohons()
-    {
-        pohonRenderers = new Transform[pohonAktif.childCount];
-        for (int i = 0; i < pohonAktif.childCount; i++)
-        {
-            pohonRenderers[i] = pohonAktif.GetChild(i).transform.GetChild(0).transform;
-        }
-    }
-    void RotatePohon(int number)
-    {
-        if (number < pohonRenderers.Length)
-        {
-            pohonRenderers[number].transform.eulerAngles = new Vector3(0, camera.eulerAngles.y, 0);
 
-            //Rotate shadow
-            if (pohonRenderers[number].transform.eulerAngles.y > 270 || pohonRenderers[number].transform.eulerAngles.y < 90)
+
+    void RangeToRotate(int number)
+    {
+        if (number < pohons.Length)
+        {
+            if (Vector3.Distance(playerController.transform.position, pohons[number].transform.position) < rangePohonRotate)
             {
-                pohonAktif.GetChild(number).transform.GetChild(1).transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else 
-            {
-                pohonAktif.GetChild(number).transform.GetChild(1).transform.rotation = Quaternion.Euler(0, 180, 0);
+                var pohon = pohons[number].transform;
+
+                pohon.GetChild(0).eulerAngles = new Vector3(0, camera.eulerAngles.y, 0);
+
+                //Rotate shadow
+                if (pohon.GetChild(0).eulerAngles.y > 270 || pohon.GetChild(0).eulerAngles.y < 90)
+                {
+                    pohon.GetChild(1).transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    pohon.GetChild(1).transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
             }
         }
+        else if (number >= pohons.Length)
+        {
+            Debug.LogWarning("pohonnya kurang, total pohon : " + pohons.Length);
+        }
+        else
+        {
+            Debug.LogWarning("rotate di update kurang, total pohon : " + pohons.Length);
+        }
+
+        
     }
 }

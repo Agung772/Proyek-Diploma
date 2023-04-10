@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7068898604859364395}
   - component: {fileID: 5896537460898398010}
   - component: {fileID: 6740643499137535203}
-  - component: {fileID: 8901292030716949389}
   m_Layer: 0
   m_Name: PohonMesh
   m_TagString: Untagged
@@ -48,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2534f6da01a898a4ead76fc62a4489c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pohonNonAktif: {fileID: 0}
-  pohonAktif: {fileID: 0}
 --- !u!136 &5896537460898398010
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80,19 +77,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!65 &8901292030716949389
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36081442355337781}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 400, y: 100, z: 400}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &67694531218723743
 GameObject:
   m_ObjectHideFlags: 0
