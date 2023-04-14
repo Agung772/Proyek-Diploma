@@ -15,16 +15,13 @@ public class MinimapController : MonoBehaviour
         {
             float verticalMouse = Input.GetAxis("Mouse Y");
             positionZ -= verticalMouse * 15;
-            minimapCam.localPosition = new Vector3(0, 300, positionZ);
-            positionZ = Mathf.Clamp(positionZ, -80 + 10, 1565 - 10);
+
         }
 
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0.2)
-        {
-            print("Scroll");
-        }
-
+        positionZ += Input.GetAxis("Mouse ScrollWheel") * 100;
+        minimapCam.localPosition = new Vector3(0, 300, positionZ);
+        positionZ = Mathf.Clamp(positionZ, -80 + 10, 1565 - 10);
 
 
     }
