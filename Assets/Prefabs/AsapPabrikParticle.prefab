@@ -115,8 +115,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 17
-      minScalar: 13
+      scalar: 23
+      minScalar: 17
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1647,7 +1647,7 @@ ParticleSystem:
     orbitalX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2678,11 +2678,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
