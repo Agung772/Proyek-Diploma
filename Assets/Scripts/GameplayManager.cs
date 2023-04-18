@@ -36,16 +36,24 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-
+    bool cursorPlayerAuto;
     void CursorPlayer()
     {
+        if (!cursorPlayerAuto) return;
+
         if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
         {
-            CursorVisible(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            useFreeLook = false;
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt))
         {
-            CursorVisible(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            useFreeLook = true;
         }
     }
 
@@ -57,6 +65,8 @@ public class GameplayManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
             useFreeLook = false;
+
+            cursorPlayerAuto = false;
         }
         else
         {
@@ -64,6 +74,8 @@ public class GameplayManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
             useFreeLook = true;
+
+            cursorPlayerAuto = true;
         }
     }
 

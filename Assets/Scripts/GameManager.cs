@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            UIGameplay.instance.BookUI();
+        }
+    }
+
     public void Transisi(string condition)
     {
         if (condition == "Start")
