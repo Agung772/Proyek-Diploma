@@ -11,6 +11,6 @@ public class Makanan : MonoBehaviour
 
     public void TransferData()
     {
-        BookUI.instance.DetailMakananUI(fotoMakanan, namaMakanan, deskripsiMakanan);
+        BookUI.instance.itemUISC.DetailMakananUI(fotoMakanan, namaMakanan, deskripsiMakanan);
     }
 }

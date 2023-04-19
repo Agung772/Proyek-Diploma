@@ -14,10 +14,6 @@ public class BookUI : MonoBehaviour
 
     [SerializeField]
     GameObject itemUI;
-    [SerializeField]
-    GameObject makananUI;
-    [SerializeField]
-    GameObject detailMakananUI;
 
     [Space]
 
@@ -45,6 +41,10 @@ public class BookUI : MonoBehaviour
     [SerializeField]
     RectTransform settingButton;
 
+    [Space]
+
+    public ItemUI itemUISC;
+
     private void Awake()
     {
         instance = this;
@@ -67,22 +67,10 @@ public class BookUI : MonoBehaviour
         FalseUI();
 
         itemUI.SetActive(true);
-        makananUI.SetActive(true);
+        itemUISC.makananUI.SetActive(true);
         ClickButton("itemButton");
     }
-    public void DetailMakananUI(Sprite fotoMakanan, string namaMakanan, string deskripsiMakanan)
-    {
-        FalseUI();
 
-        itemUI.SetActive(true);
-        detailMakananUI.SetActive(true);
-
-        var dmUI = detailMakananUI.GetComponent<DetailMakananUI>();
-
-        dmUI.fotoMakanan.sprite = fotoMakanan;
-        dmUI.namaMakanan.text = namaMakanan;
-        dmUI.deskripsiMakanan.text = deskripsiMakanan;
-    }
     public void QuestUI()
     {
         FalseUI();
@@ -109,8 +97,6 @@ public class BookUI : MonoBehaviour
         coverUI.SetActive(false);
 
         itemUI.SetActive(false);
-        makananUI.SetActive(false);
-        detailMakananUI.SetActive(false);
 
         questUI.SetActive(false);
 
