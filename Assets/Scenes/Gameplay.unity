@@ -4031,10 +4031,14 @@ MonoBehaviour:
   detailMakananUI: {fileID: 2018884963}
   minumanUI: {fileID: 1483241476}
   detailMinumanUI: {fileID: 1769423657}
-  bajuUI: {fileID: 1597541168}
-  detailBajuUI: {fileID: 754917957}
+  pakaianUI: {fileID: 1597541168}
+  detailPakaianUI: {fileID: 754917957}
   obatUI: {fileID: 707944740}
   detailObatUI: {fileID: 284915578}
+  makananButton: {fileID: 957458029}
+  minumanButton: {fileID: 549610220}
+  pakaianButton: {fileID: 1871537766}
+  obatButton: {fileID: 1498799056}
 --- !u!1 &471961316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8485173162082002552, guid: 885fb95484dce164d948b4b68b17eafd, type: 3}
@@ -7184,7 +7188,7 @@ GameObject:
   - component: {fileID: 754917959}
   - component: {fileID: 754917958}
   m_Layer: 0
-  m_Name: DetailBajuUI
+  m_Name: DetailPakaianUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8429,7 +8433,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868177730}
-  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15116,7 +15120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Baju
+  m_Text: Pakaian
 --- !u!222 &1566917299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15205,7 +15209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1597541169}
   m_Layer: 0
-  m_Name: BajuUI
+  m_Name: PakaianUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18205,7 +18209,7 @@ GameObject:
   - component: {fileID: 1871537768}
   - component: {fileID: 1871537767}
   m_Layer: 0
-  m_Name: BajuButton
+  m_Name: PakaianButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18277,7 +18281,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 429777524}
         m_TargetAssemblyTypeName: ItemUI, Assembly-CSharp
-        m_MethodName: BajuUI
+        m_MethodName: PakaianUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
