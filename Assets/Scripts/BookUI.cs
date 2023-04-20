@@ -44,6 +44,7 @@ public class BookUI : MonoBehaviour
     [Space]
 
     public ItemUI itemUISC;
+    public MapUI mapUISC;
 
     private void Awake()
     {
@@ -53,21 +54,28 @@ public class BookUI : MonoBehaviour
     {
         ClickButton("");
     }
-
+    
     public void StartBookUI()
     {
         FalseUI();
         coverUI.SetActive(true);
-
+        GameplayManager.instance.CursorVisible(true);
+        PlayerController.instance.operation = false;
         ClickButton("");
     }
+    public void ExitBookUI()
+    {
+        GameplayManager.instance.CursorVisible(false);
+        PlayerController.instance.operation = true;
+    }
+
 
     public void MakananUI()
     {
         FalseUI();
 
         itemUI.SetActive(true);
-        itemUISC.makananUI.SetActive(true);
+        itemUISC.MakananUI();
         ClickButton("itemButton");
     }
 
@@ -83,6 +91,7 @@ public class BookUI : MonoBehaviour
         FalseUI();
 
         mapUI.SetActive(true);
+        mapUISC.MiniMap();
         ClickButton("mapButton");
     }
     public void SettingUI()

@@ -20,17 +20,35 @@ public class UIGameplay : MonoBehaviour
         {
             bookBool = true;
             bookUI.SetActive(true);
-
             bookUI.GetComponent<BookUI>().StartBookUI();
-
-            GameplayManager.instance.CursorVisible(true);
         }
         else
         {
             bookBool = false;
             bookUI.SetActive(false);
+            bookUI.GetComponent<BookUI>().ExitBookUI();
+        }
+    }
 
-            GameplayManager.instance.CursorVisible(false);
+    public void MapUI()
+    {
+        if (!bookBool)
+        {
+            bookBool = true;
+            bookUI.SetActive(true);
+            bookUI.GetComponent<BookUI>().StartBookUI();
+            bookUI.GetComponent<BookUI>().MapUI();
+        }
+        else if (bookBool && !bookUI.GetComponent<BookUI>().mapUISC.gameObject.activeInHierarchy)
+        {
+            bookUI.GetComponent<BookUI>().MapUI();
+        }
+        else if (bookBool && bookUI.GetComponent<BookUI>().mapUISC.gameObject.activeInHierarchy)
+        {
+            bookBool = false;
+            bookUI.SetActive(false);
+            bookUI.GetComponent<BookUI>().ExitBookUI();
+            bookUI.GetComponent<BookUI>().MapUI();
         }
     }
 }

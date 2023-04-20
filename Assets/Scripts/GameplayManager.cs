@@ -30,9 +30,14 @@ public class GameplayManager : MonoBehaviour
         CursorPlayer();
         SensitivitasCam();
 
+
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            UIGameplay.instance.BookUI();
+        }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Minimap();
+            UIGameplay.instance.MapUI();
         }
     }
 
@@ -97,50 +102,4 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    bool minimapBool, minimapCd;
-    public void Minimap()
-    {
-        if (!minimapBool && !minimapCd)
-        {
-            StartCoroutine(Coroutine());
-            IEnumerator Coroutine()
-            {
-                minimapBool = true;
-                minimapCd = true;
-                GameManager.instance.Transisi("StartExit");
-                CursorVisible(true);
-                yield return new WaitForSeconds(1);
-
-
-                minimap.SetActive(true);
-                cam.SetActive(false);
-
-                PlayerController.instance.operation = false;
-
-                yield return new WaitForSeconds(1);
-                minimapCd = false;
-            }
-        }
-        else if (minimapBool && !minimapCd)
-        {
-            StartCoroutine(Coroutine());
-            IEnumerator Coroutine()
-            {
-                minimapBool = false;
-                minimapCd = true;
-                GameManager.instance.Transisi("StartExit");
-                CursorVisible(false);
-                yield return new WaitForSeconds(1);
-
-
-                minimap.SetActive(false);
-                cam.SetActive(true);
-
-                PlayerController.instance.operation = true;
-
-                yield return new WaitForSeconds(1);
-                minimapCd = false;
-            }
-        }
-    }
 }

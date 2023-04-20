@@ -7,7 +7,6 @@ public class MinimapController : MonoBehaviour
     [SerializeField]
     Transform minimapCam;
     float positionZ = 500;
-    float positionY = 420;
 
     void Update()
     {

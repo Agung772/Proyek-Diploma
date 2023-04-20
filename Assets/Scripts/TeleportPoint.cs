@@ -8,6 +8,5 @@ public class TeleportPoint : MonoBehaviour
     private void OnMouseDown()
     {
         PlayerController.instance.SetPosition(transform.GetChild(0).position);
-        GameplayManager.instance.Minimap();
     }
 }
