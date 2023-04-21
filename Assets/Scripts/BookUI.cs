@@ -88,11 +88,15 @@ public class BookUI : MonoBehaviour
     }
     public void MapUI()
     {
-        FalseUI();
+        if (!mapUI.activeInHierarchy)
+        {
+            FalseUI();
 
-        mapUI.SetActive(true);
-        mapUISC.MiniMap();
-        ClickButton("mapButton");
+            mapUI.SetActive(true);
+            mapUISC.MiniMap();
+            ClickButton("mapButton");
+        }
+
     }
     public void SettingUI()
     {
