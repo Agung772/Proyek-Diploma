@@ -8,21 +8,25 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager instance;
 
     bool useFreeLook;
-    float sensitivitasCam = 2;
+    public float sensitivitasCam = 2;
 
     public CinemachineFreeLook cinemachineFreeLook;
 
     [SerializeField]
-    GameObject minimap;
-    public GameObject cam;
+    Light matahari;
+    public float kecerahanMatahari;
     private void Awake()
     {
         instance = this;
+
+        kecerahanMatahari = matahari.intensity;
     }
 
     private void Start()
     {
         CursorVisible(false);
+
+
     }
 
     private void Update()
@@ -102,4 +106,9 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
+
+    public void SetKecerahanMatahari(float value)
+    {
+        matahari.intensity = value;
+    }
 }

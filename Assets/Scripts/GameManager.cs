@@ -46,7 +46,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public void SetGrafik(int value)
+    {
+        QualitySettings.SetQualityLevel(value);
+    }
 
 }
 
