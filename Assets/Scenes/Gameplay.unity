@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 48657318}
   - component: {fileID: 48657317}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ButtonDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,7 +972,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 48657318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 710527108}
+        m_TargetAssemblyTypeName: GameSetting, Assembly-CSharp
+        m_MethodName: DefaultSensitifMouse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &48657318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1224,7 @@ GameObject:
   - component: {fileID: 74009351}
   - component: {fileID: 74009350}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ButtonDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,7 +1293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 74009351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 710527108}
+        m_TargetAssemblyTypeName: GameSetting, Assembly-CSharp
+        m_MethodName: DefaultKecerahanMatahari
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &74009351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4514,7 +4538,7 @@ GameObject:
   - component: {fileID: 416579590}
   - component: {fileID: 416579589}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ButtonDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4583,7 +4607,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 416579590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 710527108}
+        m_TargetAssemblyTypeName: GameSetting, Assembly-CSharp
+        m_MethodName: DefaultFieldOfView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &416579590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5271,9 +5307,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 568371478}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ValueSFX
+      - m_Target: {fileID: 710527108}
+        m_TargetAssemblyTypeName: GameSetting, Assembly-CSharp
+        m_MethodName: SetSFX
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6435,8 +6471,6 @@ MonoBehaviour:
   volumeSFX: 0
   audioSourceBGM: {fileID: 1545894472}
   audioSourceSFX: {fileID: 1175678}
-  sliderBGM: {fileID: 1769834534}
-  sliderSFX: {fileID: 482269751}
 --- !u!1 &579803618
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,13 +8508,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grafikGameDD: {fileID: 2064045379}
+  volumeBGMSlider: {fileID: 1769834534}
+  volumeBGMText: {fileID: 1721176045}
+  volumeSFXSlider: {fileID: 482269751}
+  volumeSFXText: {fileID: 1970563100}
   sensitifMouse: 0
+  sensitifMouseDefault: 2
   sensitifMouseSlider: {fileID: 1827717776}
   senMouseText: {fileID: 620372851}
   kecerahanMatahari: 0
+  kecerahanMatahariDefault: 3
   kecerahanMatahariSlider: {fileID: 214675902}
   kecerahanMatahariText: {fileID: 1093866970}
   fieldOfView: 0
+  fieldOfViewDefault: 60
   fieldOfViewSlider: {fileID: 1918155715}
   fieldOfViewText: {fileID: 34577311}
 --- !u!1 &723213819
@@ -9239,7 +9280,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747012330}
-  m_LocalRotation: {x: -0.21734019, y: 0.000000018130196, z: -0.000000004680971, w: 0.976096}
+  m_LocalRotation: {x: -0.21734019, y: 0.000000022236822, z: -0.0000000059613394, w: 0.976096}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11260,7 +11301,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868177730}
-  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21596,8 +21637,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 588200890}
   m_HandleRect: {fileID: 588200889}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.7225212
+  m_Value: 1
+  m_Size: 0.72252125
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21785,9 +21826,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 568371478}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ValueBGM
+      - m_Target: {fileID: 710527108}
+        m_TargetAssemblyTypeName: GameSetting, Assembly-CSharp
+        m_MethodName: SetBGM
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24518,6 +24559,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2902a2a5d7c2dc4dad5ba5e3932c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posisiPlayer: {x: 0, y: 0, z: 0}
+  grafik: 0
+  sensitifMouse: 0
+  kecerahanMatahari: 0
+  fieldOfView: 0
+  bayangan: 0
+  _Default: Default
+  _PosisiPlayerX: PosisiPlayerX
+  _PosisiPlayerY: PosisiPlayerY
+  _PosisiPlayerZ: PosisiPlayerZ
+  _Grafik: Grafik
+  _SensitifMouse: SensitifMouse
+  _KecerahanMatahari: KecerahanMatahari
+  _FieldOfView: FieldOfView
+  _Bayangan: Bayangan
 --- !u!1001 &1958056896
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,25 +5,24 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField]
-    float volumeBGM;
-    [SerializeField]
-    float volumeSFX;
+    public static AudioManager instance;
+
+    public float volumeBGM;
+    public float volumeSFX;
 
     [SerializeField]
     AudioSource audioSourceBGM;
     [SerializeField]
     AudioSource audioSourceSFX;
 
-    [SerializeField]
-    Slider sliderBGM;
-    [SerializeField]
-    Slider sliderSFX;
-
     string _VolumeBGM = "VolumeBGM";
     string _VolumeSFX = "VolumeSFX";
     string _DefaultVolume = "DefaultVolume";
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         if (PlayerPrefs.GetFloat(_DefaultVolume) == 0)
@@ -43,9 +42,6 @@ public class AudioManager : MonoBehaviour
 
         audioSourceBGM.volume = volumeBGM;
         audioSourceSFX.volume = volumeSFX;
-
-        sliderBGM.value = volumeBGM;
-        sliderSFX.value = volumeSFX;
     }
     public void ValueBGM(float value)
     {
