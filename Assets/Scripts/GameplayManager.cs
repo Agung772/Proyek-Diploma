@@ -10,6 +10,8 @@ public class GameplayManager : MonoBehaviour
     bool useFreeLook;
     public float sensitivitasCam = 2;
 
+    public Camera kamera;
+
     public CinemachineFreeLook cinemachineFreeLook;
 
     [SerializeField]
@@ -110,5 +112,9 @@ public class GameplayManager : MonoBehaviour
     public void SetKecerahanMatahari(float value)
     {
         matahari.intensity = value;
+    }
+    public void SetFieldOfView(float value)
+    {
+        cinemachineFreeLook.m_Lens.FieldOfView = (int)value;
     }
 }

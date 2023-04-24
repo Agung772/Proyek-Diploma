@@ -65,6 +65,7 @@ public class BookUI : MonoBehaviour
     }
     public void ExitBookUI()
     {
+        FalseUI();
         GameplayManager.instance.CursorVisible(false);
         PlayerController.instance.operation = true;
     }
@@ -93,7 +94,7 @@ public class BookUI : MonoBehaviour
             FalseUI();
 
             mapUI.SetActive(true);
-            mapUISC.MiniMap();
+            mapUISC.MiniMap(true);
             ClickButton("mapButton");
         }
 
@@ -114,6 +115,7 @@ public class BookUI : MonoBehaviour
         questUI.SetActive(false);
 
         mapUI.SetActive(false);
+        mapUISC.MiniMap(false);
 
         settingUI.SetActive(false);
     }

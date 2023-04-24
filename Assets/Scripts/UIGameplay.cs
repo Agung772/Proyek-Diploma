@@ -28,13 +28,6 @@ public class UIGameplay : MonoBehaviour
             bookUI.SetActive(false);
             bookUI.GetComponent<BookUI>().ExitBookUI();
 
-
-            if (bookUI.GetComponent<BookUI>().mapUISC.gameObject.activeInHierarchy)
-            {
-                bookUI.GetComponent<BookUI>().mapUISC.MiniMap();
-                print("fffffffffffffff");
-            }
-
         }
     }
 
@@ -56,7 +49,6 @@ public class UIGameplay : MonoBehaviour
             bookBool = false;
             bookUI.SetActive(false);
             bookUI.GetComponent<BookUI>().ExitBookUI();
-            bookUI.GetComponent<BookUI>().MapUI();
         }
     }
 }

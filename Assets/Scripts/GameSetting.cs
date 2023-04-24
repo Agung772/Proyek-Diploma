@@ -23,6 +23,14 @@ public class GameSetting : MonoBehaviour
     Slider kecerahanMatahariSlider;
     [SerializeField]
     Text kecerahanMatahariText;
+
+    [Space]
+    [SerializeField]
+    float fieldOfView;
+    [SerializeField]
+    Slider fieldOfViewSlider;
+    [SerializeField]
+    Text fieldOfViewText;
     private void Start()
     {
         grafikGameDD.value = QualitySettings.GetQualityLevel();
@@ -32,6 +40,9 @@ public class GameSetting : MonoBehaviour
 
         kecerahanMatahari = GameplayManager.instance.kecerahanMatahari;
         kecerahanMatahariSlider.value = kecerahanMatahari / 10;
+
+        fieldOfView = GameplayManager.instance.kamera.fieldOfView;
+        fieldOfViewSlider.value = fieldOfView / 100;
     }
     public void SetGrafik(int value)
     {
@@ -48,5 +59,10 @@ public class GameSetting : MonoBehaviour
     {
         GameplayManager.instance.SetKecerahanMatahari(value * 10);
         kecerahanMatahariText.text = (value * 100).ToString("F1") + "%";
+    }
+    public void SetFieldOfView(float value)
+    {
+        GameplayManager.instance.SetFieldOfView(value * 100);
+        fieldOfViewText.text = (value * 100).ToString("F0");
     }
 }

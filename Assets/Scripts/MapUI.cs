@@ -8,18 +8,15 @@ public class MapUI : MonoBehaviour
     GameObject cameraRenderMap;
 
 
-    bool minimapBool;
-    public void MiniMap()
+    public void MiniMap(bool condition)
     {
-        if (!minimapBool)
+        if (!condition)
         {
-            minimapBool = true;
-            cameraRenderMap.SetActive(true);
-        }
-        else if (minimapBool)
-        {
-            minimapBool = false;
             cameraRenderMap.SetActive(false);
+        }
+        else if (condition)
+        {
+            cameraRenderMap.SetActive(true);
         }
     }
 }
