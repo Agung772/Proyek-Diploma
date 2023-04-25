@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        LoadVolume();
     }
     private void Start()
     {
@@ -32,7 +34,7 @@ public class AudioManager : MonoBehaviour
             PlayerPrefs.SetFloat(_VolumeSFX, 0.6f);
         }
 
-        LoadVolume();
+
     }
 
     void LoadVolume()

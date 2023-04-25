@@ -47,6 +47,10 @@ public class GameSetting : MonoBehaviour
     [SerializeField]
     Text fieldOfViewText;
 
+    [Space]
+    [SerializeField]
+    Toggle bayanganToggle;
+
     private void Awake()
     {
         instance = this;
@@ -63,24 +67,33 @@ public class GameSetting : MonoBehaviour
         print((int)GameSave.instance.grafik);
 
         volumeBGMSlider.value = AudioManager.instance.volumeBGM;
-        volumeBGMText.text = (volumeBGMSlider.value * 100).ToString("F1");
+        volumeBGMText.text = (volumeBGMSlider.value * 100).ToString("F1") + "%";
         volumeSFXSlider.value = AudioManager.instance.volumeSFX;
-        volumeSFXText.text = (volumeSFXSlider.value * 100).ToString("F1");
+        volumeSFXText.text = (volumeSFXSlider.value * 100).ToString("F1") + "%";
 
         sensitifMouse = GameSave.instance.sensitifMouse;
         sensitifMouseSlider.value = sensitifMouse / 10;
-        GameplayManager.instance.SetSensitivitasCam(sensitifMouseSlider.value * 10);
         senMouseText.text = (sensitifMouseSlider.value * 100).ToString("F1") + "%";
 
         kecerahanMatahari = GameSave.instance.kecerahanMatahari;
         kecerahanMatahariSlider.value = kecerahanMatahari / 10;
-        GameplayManager.instance.SetKecerahanMatahari(kecerahanMatahariSlider.value * 10);
         kecerahanMatahariText.text = (kecerahanMatahariSlider.value * 100).ToString("F1") + "%";
 
         fieldOfView = GameSave.instance.fieldOfView;
         fieldOfViewSlider.value = fieldOfView / 100;
-        GameplayManager.instance.SetFieldOfView(fieldOfViewSlider.value * 100);
         fieldOfViewText.text = (fieldOfViewSlider.value * 100).ToString("F0");
+
+        if (GameSave.instance.bayangan == 1) bayanganToggle.isOn = true;
+        else bayanganToggle.isOn = false;
+
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetSensitivitasCam(sensitifMouseSlider.value * 10);
+
+            GameplayManager.instance.SetKecerahanMatahari(kecerahanMatahariSlider.value * 10);
+
+            GameplayManager.instance.SetFieldOfView(fieldOfViewSlider.value * 100);
+        }
     }
 
     public void SetGrafik(int value)
@@ -102,8 +115,11 @@ public class GameSetting : MonoBehaviour
     }
     public void SetSensitifMouse(float value)
     {
-        GameplayManager.instance.SetSensitivitasCam(value * 10);
         senMouseText.text = (value * 100).ToString("F1") + "%";
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetSensitivitasCam(value * 10);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._SensitifMouse, value * 10);
     }
@@ -111,16 +127,22 @@ public class GameSetting : MonoBehaviour
     {
         sensitifMouse = sensitifMouseDefault;
         sensitifMouseSlider.value = sensitifMouse / 10;
-        GameplayManager.instance.SetSensitivitasCam(sensitifMouseSlider.value * 10);
         senMouseText.text = (sensitifMouseSlider.value * 100).ToString("F1") + "%";
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetSensitivitasCam(sensitifMouseSlider.value * 10);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._SensitifMouse, sensitifMouseSlider.value * 10);
     }
 
     public void SetKecerahanMatahari(float value)
     {
-        GameplayManager.instance.SetKecerahanMatahari(value * 10);
         kecerahanMatahariText.text = (value * 100).ToString("F1") + "%";
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetKecerahanMatahari(value * 10);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._KecerahanMatahari, value * 10);
     }
@@ -128,15 +150,21 @@ public class GameSetting : MonoBehaviour
     {
         kecerahanMatahari = kecerahanMatahariDefault;
         kecerahanMatahariSlider.value = kecerahanMatahari / 10;
-        GameplayManager.instance.SetKecerahanMatahari(kecerahanMatahariSlider.value * 10);
         kecerahanMatahariText.text = (kecerahanMatahariSlider.value * 100).ToString("F1") + "%";
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetKecerahanMatahari(kecerahanMatahariSlider.value * 10);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._KecerahanMatahari, kecerahanMatahariSlider.value * 10);
     }
     public void SetFieldOfView(float value)
     {
-        GameplayManager.instance.SetFieldOfView(value * 100);
         fieldOfViewText.text = (value * 100).ToString("F0");
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetFieldOfView(value * 100);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._FieldOfView, value * 100);
     }
@@ -144,9 +172,25 @@ public class GameSetting : MonoBehaviour
     {
         fieldOfView = fieldOfViewDefault;
         fieldOfViewSlider.value = fieldOfView / 100;
-        GameplayManager.instance.SetFieldOfView(fieldOfViewSlider.value * 100);
         fieldOfViewText.text = (fieldOfViewSlider.value * 100).ToString("F0");
+        if (GameplayManager.instance != null)
+        {
+            GameplayManager.instance.SetFieldOfView(fieldOfViewSlider.value * 100);
+        }
 
         GameSave.instance.SaveSetting(GameSave.instance._FieldOfView, fieldOfViewSlider.value * 100);
+    }
+
+    public void SetBayangan(bool value)
+    {
+        if (value)
+        {
+            GameSave.instance.SaveSetting(GameSave.instance._Bayangan, 1);
+        }
+        else
+        {
+            GameSave.instance.SaveSetting(GameSave.instance._Bayangan, 0);
+        }
+
     }
 }
