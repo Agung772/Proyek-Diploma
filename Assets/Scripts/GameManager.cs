@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
         }
+
+        print(Display.main.renderingHeight + " x " + Display.main.renderingWidth);
     }
 
     private void Update()
