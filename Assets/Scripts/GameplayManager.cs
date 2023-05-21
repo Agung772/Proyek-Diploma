@@ -52,14 +52,14 @@ public class GameplayManager : MonoBehaviour
     {
         if (!cursorPlayerAuto) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+        if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
             useFreeLook = false;
         }
-        if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt))
+        else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
